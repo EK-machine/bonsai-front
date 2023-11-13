@@ -7,6 +7,7 @@ import 'react-responsive-modal/styles.css';
 import { Icon } from '../../../../components/svg/index';
 import { closeModal } from '../../../../redux/slices/modal.slice';
 import { RootState } from '../../../../types/index.js';
+import styles from './modal-popup.module.css';
 
 export interface IModalPopup {
   children: ReactNode;
@@ -22,8 +23,8 @@ export const ModalPopup: React.FC<IModalPopup> = memo((props) => {
 
   const isVisible = activeModal === name;
   const defaultClassNames = {
-    modal: 'white-popup__close-btn',
-    closeIcon: 'white-popup__close-btn',
+    modal: styles.modal_body,
+    closeButton: styles.modal_close_btn,
   };
 
   const handleCloseCB = useCallback(() => {
