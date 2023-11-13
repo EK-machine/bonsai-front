@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { MODAL } from "../../consts/modal";
 import { openModal } from "../../redux/slices/modal.slice";
 import { EventTargetWithDataSetTagName } from "../../types/index";
-import { SignModals } from "./components/sign-in-modal.component";
+import { SignModals } from './components/index';
+import styles from './page.module.css';
 
 export default function BroAdmin() {
     const dispatch = useDispatch()
@@ -18,9 +19,11 @@ export default function BroAdmin() {
     }
 
     return (
-        <div>
-            <button onClick={handleClick} data-open-modal-name={MODAL.SIGN_IN}>Войти</button>
-            <button onClick={handleClick} data-open-modal-name={MODAL.SIGN_UP}>Зарегистрироваться</button>
+        <div className={styles.broadmin_page}>
+            <section className={styles.broadmin_btns_wrapper}>
+                <button className={styles.broadmin_btn} onClick={handleClick} data-open-modal-name={MODAL.SIGN_IN}>Войти</button>
+                <button className={styles.broadmin_btn} onClick={handleClick} data-open-modal-name={MODAL.SIGN_UP}>Зарегистрироваться</button>
+            </section>
             <SignModals />
         </div>
     )
