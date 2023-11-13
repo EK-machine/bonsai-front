@@ -4,17 +4,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { MODAL } from "../../consts/modal";
 import { openModal } from "../../redux/slices/modal.slice";
+import { EventTargetWithDataSetTagName } from "../../types/index";
 import { SignModals } from "./components/sign-in-modal.component";
-
-export interface EventTargetWithDataSetTagName extends EventTarget {
-    tagName: string;
-    dataset: {
-        openModalName: string;
-        locale: string;
-        formLink: string;
-        menuType: string;
-    }
-}
 
 export default function BroAdmin() {
     const dispatch = useDispatch()

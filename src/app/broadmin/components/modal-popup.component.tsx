@@ -6,7 +6,7 @@ import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { Icon } from '../../../components/svg/index';
 import { closeModal } from '../../../redux/slices/modal.slice';
-import { RootState } from '../../../redux/store/store';
+import { RootState } from '../../../types/index.js';
 
 export interface IModalPopup {
   children: ReactNode;
