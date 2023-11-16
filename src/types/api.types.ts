@@ -7,3 +7,15 @@ export interface ApiCallErr {
     };
     message: string;
 }
+
+export interface LoginBody {
+    email: string;
+    password: string;
+}
+
+export interface LoginResp {
+  data: string;
+  status: number;
+  statusText: string;
+}
+
