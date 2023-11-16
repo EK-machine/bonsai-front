@@ -29,3 +29,5 @@ export const persistor = persistStore(store);
 export default store;
 
 export type RootReducerState = ReturnType<typeof rootReducer>
+
+export type ApplicationDispatch = typeof store.dispatch;
