@@ -8,14 +8,19 @@ export interface ApiCallErr {
     message: string;
 }
 
-export interface LoginBody {
+export interface SignInUpBody {
     email: string;
     password: string;
 }
 
-export interface LoginResp {
+export interface SignInResp {
   data: string;
   status: number;
   statusText: string;
 }
 
+export interface SignUpResp {
+  data: {message: string};
+  status: number;
+  statusText: string;
+}

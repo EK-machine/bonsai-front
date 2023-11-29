@@ -6,17 +6,18 @@ export enum SliceStateStatus {
     Rejected = 'Rejected'
 }
 
-export interface UserStateInitial {
-    access_token: string;
-    status: string;
-    error: string[];
-}
-
 export interface RootState extends RootReducerState {}
 export interface AppDispatch extends ApplicationDispatch {}
 
 export interface UserStateInitial {
-    access_token: string;
+    accessToken: string;
+    loggedIn: boolean;
     status: string;
-    error: string[];
+    registerMessage: string;
+    errors: ErrorObj[];
+}
+
+export interface ErrorObj {
+    property: string;
+    message: string;
 }
