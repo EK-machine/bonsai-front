@@ -1,0 +1,31 @@
+.brologin_page {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.brologin_heading {
+  color: #444;
+}
+
+.brologin_btns_wrapper {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  height: 20%;
+  max-width: 1400px;
+}
+
+.brologin_btn {
+  padding: 0.5rem;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.brologin_btn:first-child {
+  margin-right: 0.5rem;
+}
