@@ -1,0 +1,17 @@
+.header_content_wrapper {
+  margin: 0 auto;
+  padding: 0 3rem;
+  max-width: 105rem;
+  display: flex;
+  justify-content: space-between;
+  height: 6rem;
+}
+
+.header_logo_wrapper {
+  height: 6rem;
+}
+
+.header_nav_wrapper {
+  height: 6rem;
+  display: flex;
+}
