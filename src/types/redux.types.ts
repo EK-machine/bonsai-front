@@ -9,7 +9,7 @@ export enum SliceStateStatus {
 export interface RootState extends RootReducerState {}
 export interface AppDispatch extends ApplicationDispatch {}
 
-export interface UserStateInitial {
+export interface AdminStateInitial {
     status: string;
     loggedIn: boolean;
     errors: ErrorObj[];

@@ -8,8 +8,8 @@ import { callRefresh } from "../utils/index";
 
 export const useRefresh = () => {
   const callTime = useRef<number>(0);
-  const loggedIn = useSelector((state: RootState) => state.user.loggedIn);
-  const refreshBaseTime = useSelector((state: RootState) => state.user.refreshBaseTime);
+  const loggedIn = useSelector((state: RootState) => state.admin.loggedIn);
+  const refreshBaseTime = useSelector((state: RootState) => state.admin.refreshBaseTime);
   const dispatch = useDispatch<AppDispatch>();
   const timeToRefresh = 780000;
 
