@@ -10,11 +10,12 @@ export interface RootState extends RootReducerState {}
 export interface AppDispatch extends ApplicationDispatch {}
 
 export interface UserStateInitial {
-    accessToken: string;
-    loggedIn: boolean;
     status: string;
-    registerMessage: string;
+    loggedIn: boolean;
     errors: ErrorObj[];
+    accessToken: string;
+    refreshBaseTime: number;
+    registerMessage: string;
 }
 
 export interface ErrorObj {
