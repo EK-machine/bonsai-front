@@ -24,3 +24,10 @@ export interface SignUpResp {
   status: number;
   statusText: string;
 }
+
+export interface RefreshResp {
+  data: string;
+  status: number;
+  statusText: string;
+}
+
