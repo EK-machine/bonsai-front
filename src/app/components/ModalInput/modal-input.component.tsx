@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../types/index';
-import { getAdminErrors } from '../../../utils/index';
+import { ErrorObj, RootState } from '../../../types/index';
+import { ModalErrors } from '../index';
 import styles from './modal-input.module.css';
 
 export interface IModalInput {
@@ -12,9 +12,10 @@ export interface IModalInput {
     type: string;
     htmFor: string;
     name: string;
+    outerErrors?: ErrorObj[];
 }
 
-export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htmFor, name}) => {
+export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htmFor, name, outerErrors}) => {
     const adminErrors = useSelector((state: RootState) => state.admin.errors);
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => setData(e.target.value);
     return (
@@ -25,11 +26,7 @@ export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htm
                 </label>
                 <input name={name} id={htmFor} autoComplete="off" className={styles.input} onChange={inputHandler} type={type} />
             </div>
-            {getAdminErrors(name, adminErrors).map(element => {
-                return (
-                    <div className={styles.err_message_wrapper} key={element}>{element}</div>
-                    )
-                })}
+            <ModalErrors name={name} errors={outerErrors && outerErrors.length > 0 ? outerErrors : adminErrors} />
         </div>
     )
 }
