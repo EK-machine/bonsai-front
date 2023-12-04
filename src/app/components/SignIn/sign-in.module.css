@@ -1,0 +1,32 @@
+.sign_in_body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sign_in_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign_in_heading {
+  text-align: center;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.input_errors_wrapper {
+  margin-bottom: 2rem;
+}
+
+.sign_in_errors_heading {
+  text-align: center;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.register_message_wrapper {
+  color: #444;
+}
