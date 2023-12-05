@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAdminErrors, closeModal, signInThunk } from '../../../redux/slices/index';
@@ -15,7 +14,6 @@ export const SignIn: React.FC = () => {
     const adminErrors = useSelector((state: RootState) => state.admin.errors);
     const accessToken = useSelector((state: RootState) => state.admin.accessToken);
     const loggedIn = useSelector((state: RootState) => state.admin.loggedIn);
-    const { push } = useRouter();
 
 
     const dispatch = useDispatch<AppDispatch>();
@@ -29,9 +27,8 @@ export const SignIn: React.FC = () => {
         if (accessToken && loggedIn) {
             dispatch(clearAdminErrors());
             dispatch(closeModal());
-            push('/broadmin');
         }
-    }, [accessToken, loggedIn, dispatch, push]);
+    }, [accessToken, loggedIn, dispatch]);
 
     return (
         <form className={styles.sign_in_body} onSubmit={handleSubmit}>

@@ -1,15 +1,19 @@
 'use client';
 
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MODAL } from '../../consts/index';
 import { openModal } from '../../redux/slices/modal.slice';
-import { EventTargetWithDataSetTagName } from '../../types/index';
+import { EventTargetWithDataSetTagName, RootState } from '../../types/index';
 import { SignModals } from '../components/index';
 import styles from './page.module.css';
 
 export default function BroLogin() {
+    const loggedIn = useSelector((state: RootState) => state.admin.loggedIn);
+    const accessToken = useSelector((state: RootState) => state.admin.accessToken);
     const dispatch = useDispatch()
+    const { push } = useRouter();
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         const eTerget = e.target as EventTargetWithDataSetTagName;
@@ -17,6 +21,12 @@ export default function BroLogin() {
         e.preventDefault();
         dispatch(openModal(openModalName));
     }
+
+    useEffect(() => {
+        if (accessToken && loggedIn) {
+            push('/broadmin');
+        }
+    }, [accessToken, loggedIn, push]);
 
     return (
         <div className={styles.brologin_page}>
