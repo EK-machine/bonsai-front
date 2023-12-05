@@ -6,9 +6,9 @@ import { clearAdminErrors, closeModal, signInThunk } from '../../../redux/slices
 import { AppDispatch, RootState } from '../../../types/index';
 import { getAdminErrors } from '../../../utils/index';
 import { ModalErrors, ModalInput } from '../index';
-import styles from './sign-in.module.css';
+import styles from './modal-sign-in.module.css';
 
-export const SignIn: React.FC = () => {
+export const ModalSignIn: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const adminErrors = useSelector((state: RootState) => state.admin.errors);

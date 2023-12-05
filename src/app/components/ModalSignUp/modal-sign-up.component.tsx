@@ -6,10 +6,10 @@ import { MODAL } from '../../../consts/index';
 import { closeModal, nullRegisterMessage, openModal, signUpThunk } from '../../../redux/slices/index';
 import { AppDispatch, ErrorObj, RootState } from '../../../types/index';
 import { getAdminErrors } from '../../../utils/index';
-import styles from '../SignIn/sign-in.module.css';
+import styles from '../ModalSignIn/modal-sign-in.module.css';
 import { ModalErrors, ModalInput } from '../index';
 
-export const SignUp: React.FC = () => {
+export const ModalSignUp: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [repeatPassword, setRepeatPassword] = useState<string>('');
