@@ -2,11 +2,23 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import adminReducer from '../slices/admin.slice';
+import articleReducer from '../slices/article.slice';
+import bonsaiReducer from '../slices/bonsai.slice';
+import instrumentReducer from '../slices/instrument.slice';
 import modalReducer from '../slices/modal.slice';
+import potReducer from '../slices/pot.slice';
+import serviceReducer from '../slices/service.slice';
+import soilReducer from '../slices/soil.slice';
 
 export const rootReducer = combineReducers({
-  modal: modalReducer,
   admin: adminReducer,
+  articles: articleReducer,
+  bonsais: bonsaiReducer,
+  instruments: instrumentReducer,
+  modal: modalReducer,
+  pots: potReducer,
+  services: serviceReducer,
+  soils: soilReducer,
 });
 
 const persistConfig = {

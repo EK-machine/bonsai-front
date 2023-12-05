@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { closeModal } from '../../../redux/slices/modal.slice';
-import { RootState } from '../../../types/index';
+import { AppDispatch, RootState } from '../../../types/index';
 import { Icon } from '../index';
 import styles from './modal-popup.module.css';
 
@@ -19,7 +19,7 @@ export const ModalPopup: React.FC<IModalPopup> = memo((props) => {
 
   const activeModal = useSelector((state: RootState) => state.modal.name);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>()
 
   const isVisible = activeModal === name;
   const defaultClassNames = {
