@@ -6,7 +6,7 @@ export interface Bonsai {
     category: string;
     in_stock: boolean;
     descr: string | null;
-    img_path_1: string | null;
+    img_path_1: string;
     img_path_2: string | null;
     img_path_3: string | null;
 }
@@ -15,7 +15,7 @@ export interface Article {
     id: number;
     name: string;
     text: string;
-    img_path: string | null;
+    img_path_1: string;
 }
 
 export interface Service {
@@ -23,7 +23,7 @@ export interface Service {
     name: string;
     price: number;
     descr: string | null;
-    img_path: string;
+    img_path_1: string;
 }
 
 export interface Soil {
@@ -31,8 +31,7 @@ export interface Soil {
     name: string;
     price: number;
     descr: string | null;
-    img_path: string | null;
-    in_stock: boolean;
+    img_path_1: string;
 }
 
 export interface Instrument {
@@ -40,7 +39,7 @@ export interface Instrument {
     name: string;
     price: number;
     descr: string | null;
-    img_path: string | null;
+    img_path_1: string;
     in_stock: boolean;
 }
 
@@ -52,6 +51,6 @@ export interface Pot {
     color: string;
     price: number;
     descr: string | null;
-    img_path: string;
+    img_path_1: string;
     in_stock: boolean;
 }

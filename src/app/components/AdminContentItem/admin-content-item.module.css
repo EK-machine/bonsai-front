@@ -1,0 +1,55 @@
+.admin_content_item_body {
+  background-color: transparent;
+  padding: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin_content_item_body:hover {
+  box-shadow: 0px 0px 15px 0px rgba(79, 150, 204, 0.2);
+}
+
+.admin_content_item_content {
+  display: flex;
+}
+
+.admin_content_item_img {
+  border: 1px solid #cfcfcf;
+  margin-right: 1rem;
+  background-color: #fff;
+}
+
+.admin_content_item_name {
+  font-family: Montserrat,HelveticaNeue,Helvetica Neue,sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.14rem;
+  font-size: 1.4rem;
+}
+
+.admin_content_create_btn,
+.admin_content_change_btn {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-family: Montserrat,HelveticaNeue,Helvetica Neue,sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.14rem;
+  font-size: 1.4rem;
+  height: fit-content;
+  display: inline-block;
+  border: 1px solid #cfcfcf;
+  background-color: #f0f0f0;
+}
+
+.admin_content_create_btn:hover,
+.admin_content_change_btn:hover {
+  background-color: #bdbdbd;
+}
+
+.admin_content_item_nocontent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+

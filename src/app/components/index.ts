@@ -1,4 +1,5 @@
 export * from './AdminContent/admin-content.component';
+export * from './AdminContentItem/admin-content-item.component';
 export * from './AdminLayout/admin-layout.component';
 export * from './AdminNav/admin-nav.component';
 export * from './Header/header.component';

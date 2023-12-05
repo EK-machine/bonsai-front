@@ -1,22 +1,3 @@
 .admin_nav_body {
   list-style-type: none;
 }
-
-.admin_nav_btn {
-  font-family: Montserrat,HelveticaNeue,Helvetica Neue,sans-serif;
-  background-color: transparent;
-  font-weight: 400;
-  letter-spacing: 0.14rem;
-  font-size: 1.4rem;
-  padding: 1rem;
-  border: 1px solid transparent;
-}
-
-.admin_nav_btn:hover {
-  cursor: pointer;
-  border-bottom: 1px solid #7c7c7c;
-}
-
-.active {
-  border-bottom: 1px solid #444;
-}

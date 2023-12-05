@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NoCategoryProducts } from '../../../consts/index';
 import { Article, Bonsai, Instrument, Pot, RootState, Service, Soil } from '../../../types/index';
+import { AdminContentItem } from '../index';
 import styles from './admin-content.module.css';
 
 export interface IAdminContent {
@@ -33,10 +34,11 @@ export const AdminContent: React.FC<IAdminContent> = ({activeNav}) => {
         <ul className={styles.admin_nav_body}>
             {activeEntity.length > 0 ?
                 activeEntity.map(el => (
-                    <li className={styles.admin_nav_btn} key={el.id} >{el.name}</li>))
+                    <AdminContentItem key={el.id} id={el.id} name={el.name} img_path_1={el.img_path_1} activeNav={activeNav} />))
                     :   (
                     <div>{NoCategoryProducts}</div>
                 )}
+            <AdminContentItem activeNav={activeNav} />
         </ul>
     )
 }
