@@ -6,6 +6,9 @@ export const ADMIN_NAV = [
         title: 'Грунты',
     },
     {
+        title: 'Горшки',
+    },
+    {
         title: 'Инструменты',
     },
     {
