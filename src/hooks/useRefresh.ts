@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshThunk } from "../redux/slices/index";
 import { AppDispatch, RootState } from "../types/index";
-import { callRefresh } from "../utils/index";
 
 export const useRefresh = () => {
   const callTime = useRef<number>(0);
@@ -15,7 +14,7 @@ export const useRefresh = () => {
 
   const checkRefresh = () => {
     callTime.current += 60000;
-    if (loggedIn && callRefresh(refreshBaseTime, callTime.current, timeToRefresh)) {
+    if (loggedIn && ((timeToRefresh + callTime.current) >= (timeToRefresh + timeToRefresh))) {
       dispatch(refreshThunk(timeToRefresh));
       callTime.current = 0;
     }
@@ -24,7 +23,7 @@ export const useRefresh = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       checkRefresh();
-    }, 1000);
+    }, 60000);
     return () => clearInterval(interval);
   }, []);
 }
