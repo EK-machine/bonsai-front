@@ -12,6 +12,7 @@
   grid-area: header;
   height: 6rem;
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .logout_btn {
@@ -40,13 +41,13 @@
   grid-template-areas:
   'navigation edit';
   width: 105rem;
-  height: calc(100vh - 7.5rem);
+  height: calc(100vh - 9.5rem);
   margin: 0 auto;
 }
 
 .admin_layout_content_nav_wrapper {
   grid-area: navigation;
-  border: 1px solid green;
+  padding: 1rem;
 }
 
 .admin_layout_content_edit_wrapper {
