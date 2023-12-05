@@ -5,14 +5,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MODAL } from '../../consts/index';
 import { openModal } from '../../redux/slices/modal.slice';
-import { EventTargetWithDataSetTagName, RootState } from '../../types/index';
+import { AppDispatch, EventTargetWithDataSetTagName, RootState } from '../../types/index';
 import { SignModals } from '../components/index';
 import styles from './page.module.css';
 
 export default function BroLogin() {
     const loggedIn = useSelector((state: RootState) => state.admin.loggedIn);
     const accessToken = useSelector((state: RootState) => state.admin.accessToken);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const { push } = useRouter();
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {

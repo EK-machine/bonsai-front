@@ -1,4 +1,5 @@
 import { ApplicationDispatch, RootReducerState } from '../redux/store/store';
+import { Article, Bonsai, Instrument, Pot, Service, Soil } from './index';
 
 export enum SliceStateStatus {
     Loading = 'Loading',
@@ -16,6 +17,42 @@ export interface AdminStateInitial {
     accessToken: string;
     refreshBaseTime: number;
     registerMessage: string;
+}
+
+export interface BonsaiStateInitial {
+    bonsais: Bonsai[];
+    status: string;
+    errors: ErrorObj[];
+}
+
+export interface ArticleStateInitial {
+    articles: Article[];
+    status: string;
+    errors: ErrorObj[];
+}
+
+export interface PotStateInitial {
+    pots: Pot[];
+    status: string;
+    errors: ErrorObj[];
+}
+
+export interface ServiceStateInitial {
+    services: Service[];
+    status: string;
+    errors: ErrorObj[];
+}
+
+export interface SoilsStateInitial {
+    soils: Soil[];
+    status: string;
+    errors: ErrorObj[];
+}
+
+export interface InstrumentStateInitial {
+    instruments: Instrument[];
+    status: string;
+    errors: ErrorObj[];
 }
 
 export interface ErrorObj {

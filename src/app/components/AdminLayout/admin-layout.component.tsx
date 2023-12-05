@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
+import React, { ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRefresh } from '../../../hooks/index';
 import { logoutThunk } from '../../../redux/slices/index';
@@ -11,7 +11,7 @@ import styles from './admin-layout.module.css';
 export interface IAdminLayout {
     children: ReactNode;
     activeNav: number;
-    setActiveNav: Dispatch<SetStateAction<number>>
+    setActiveNav: (ind: number) => void;
 }
 
 export const AdminLayout: React.FC<IAdminLayout> = ({children, activeNav, setActiveNav}) => {
