@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllArticlesThunk, getAllBonsaisThunk, getAllInstrumentsThunk, getAllPotsThunk, getAllServicesThunk, getAllSoilsThunk } from '../../redux/slices/index';
 import { AppDispatch, RootState } from '../../types/index';
-import { AdminLayout } from '../components/index';
+import { AdminContent, AdminLayout } from '../components/index';
 import styles from './page.module.css';
 
 export default function BroAdmin() {
@@ -45,7 +45,7 @@ export default function BroAdmin() {
     return (
         <div className={styles.brologin_page}>
             <AdminLayout setActiveNav={navHandler} activeNav={activeNav}>
-                <>{activeNav}</>
+                <AdminContent activeNav={activeNav} />
             </AdminLayout>
         </div>
     )
