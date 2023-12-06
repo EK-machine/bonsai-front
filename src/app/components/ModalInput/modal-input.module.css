@@ -36,3 +36,12 @@
   overflow: auto;
   resize: none;
 }
+
+.textarea::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background-color: #e2e2e2;
+  border-radius: 0.3rem;
+}

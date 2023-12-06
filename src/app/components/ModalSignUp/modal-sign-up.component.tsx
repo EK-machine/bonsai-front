@@ -52,14 +52,14 @@ export const ModalSignUp: React.FC = () => {
         <form className={styles.sign_in_body} >
             <div className={styles.sign_in_wrapper}>
                 <h1 className={styles.sign_in_heading}>Зарегистрируйтесь</h1>
-                <ModalInput value={email} setData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
-                <ModalInput value={password} setData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
+                <ModalInput value={email} setStringData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
+                <ModalInput value={password} setStringData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
                 <ModalInput
                     value={repeatPassword}
                     type={MODAL_INPUT_TYPES.PASSWORD}
                     htmFor='repeat_password'
                     name={'repeat_password'}
-                    setData={setRepeatPassword}
+                    setStringData={setRepeatPassword}
                     labelText={'Repeat password: '}
                     outerErrors={repeatPasswordError}
                 />

@@ -27,12 +27,10 @@ export const ModalPopup: React.FC<IModalPopup> = memo((props) => {
     modal: styles.modal_body,
     closeButton: styles.modal_close_btn,
   };
-  console.log('0', addOnCloseAction);
+
   const handleCloseCB = useCallback(() => {
     dispatch(closeModal());
-    console.log('1', addOnCloseAction);
     if (addOnCloseAction) {
-      console.log('2');
       addOnCloseAction();
     }
   }, [dispatch, addOnCloseAction]);

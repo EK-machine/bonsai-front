@@ -35,8 +35,8 @@ export const ModalSignIn: React.FC = () => {
         <form className={styles.sign_in_body}>
             <div className={styles.sign_in_wrapper}>
                 <h1 className={styles.sign_in_heading}>Войдите в учётную запись</h1>
-                <ModalInput value={email} setData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
-                <ModalInput value={password} setData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
+                <ModalInput value={email} setStringData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
+                <ModalInput value={password} setStringData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
                 {getAdminErrors('common', adminErrors).length > 0 && <div className={styles.input_errors_wrapper}>
                     <h2 className={styles.sign_in_errors_heading}>повторите попытку</h2>
                     <ModalErrors name={'common'} errors={adminErrors} />
