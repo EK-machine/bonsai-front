@@ -15,6 +15,18 @@ export interface SignInUpBody {
     password: string;
 }
 
+export interface CreateBonsaiBody {
+  name: string;
+  price: number;
+  img_path_1: string;
+  img_path_2?: string;
+  img_path_3?: string;
+  category?: string;
+  descr?: string;
+  level?: string;
+  in_stock?: boolean;
+}
+
 export interface SignInResp {
   data: string;
   status: number;
@@ -35,6 +47,13 @@ export interface RefreshResp {
 
 export interface GetAllBonsaiResp {
   data: Bonsai[];
+  status: number;
+  statusText: string;
+}
+
+
+export interface CreateBonsaiResp {
+  data: Bonsai;
   status: number;
   statusText: string;
 }

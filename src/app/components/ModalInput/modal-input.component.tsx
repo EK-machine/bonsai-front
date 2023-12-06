@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { MODAL_INPUT_TYPES } from '../../../consts/index';
-import { ErrorObj, RootState } from '../../../types/index';
+import { ErrorObj } from '../../../types/index';
 import { ModalErrors } from '../index';
 import styles from './modal-input.module.css';
 
@@ -16,11 +15,11 @@ export interface IModalInput {
     htmFor: string;
     name: string;
     outerErrors?: ErrorObj[];
+    innerErrors: ErrorObj[];
     value: string | number | boolean;
 }
 
-export const ModalInput: React.FC<IModalInput> = ({setStringData, setNumData, setBoolData, labelText, type, htmFor, name, outerErrors, value}) => {
-    const adminErrors = useSelector((state: RootState) => state.admin.errors);
+export const ModalInput: React.FC<IModalInput> = ({setStringData, setNumData, setBoolData, labelText, type, htmFor, name, outerErrors, innerErrors, value}) => {
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         if (setStringData) {
             setStringData(e.target.value);
@@ -65,7 +64,7 @@ export const ModalInput: React.FC<IModalInput> = ({setStringData, setNumData, se
                     <input checked={value as boolean} name={name} id={htmFor} autoComplete="off" className={styles.checkbox} onChange={checkboxHandler} type={type} />
                 </>)}
             </div>
-            <ModalErrors name={name} errors={outerErrors && outerErrors.length > 0 ? outerErrors : adminErrors} />
+            <ModalErrors name={name} errors={outerErrors && outerErrors.length > 0 ? outerErrors : innerErrors} />
         </div>
         )
 }
