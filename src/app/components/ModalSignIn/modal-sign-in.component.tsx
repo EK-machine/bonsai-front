@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { MODAL_INPUT_TYPES } from '../../../consts/index';
 import { clearAdminErrors, closeModal, signInThunk } from '../../../redux/slices/index';
 import { AppDispatch, RootState } from '../../../types/index';
 import { getAdminErrors } from '../../../utils/index';
-import { ModalErrors, ModalInput } from '../index';
+import { AdminBtn, ModalErrors, ModalInput } from '../index';
 import styles from './modal-sign-in.module.css';
 
 export const ModalSignIn: React.FC = () => {
@@ -18,7 +19,7 @@ export const ModalSignIn: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         dispatch(signInThunk({ email, password }));
     }
@@ -31,17 +32,17 @@ export const ModalSignIn: React.FC = () => {
     }, [accessToken, loggedIn, dispatch]);
 
     return (
-        <form className={styles.sign_in_body} onSubmit={handleSubmit}>
+        <form className={styles.sign_in_body}>
             <div className={styles.sign_in_wrapper}>
                 <h1 className={styles.sign_in_heading}>Войдите в учётную запись</h1>
-                <ModalInput setData={setEmail} labelText={'Email: '} type={'text'} htmFor='email' name={'email'} />
-                <ModalInput setData={setPassword} labelText={'Password: '} type={'password'} htmFor='password' name={'password'} />
+                <ModalInput value={email} setData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
+                <ModalInput value={password} setData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
                 {getAdminErrors('common', adminErrors).length > 0 && <div className={styles.input_errors_wrapper}>
                     <h2 className={styles.sign_in_errors_heading}>повторите попытку</h2>
                     <ModalErrors name={'common'} errors={adminErrors} />
                 </div>}
             </div>
-            <button type='submit'>Войти</button>
+            <AdminBtn onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e)} type='button' text='Войти' />
         </form>
     )
 }

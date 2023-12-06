@@ -4,7 +4,7 @@ import React from 'react';
 import { MODAL } from '../../../consts/modal';
 import { ModalPopup, ModalSignIn, ModalSignUp } from '../index';
 
-export const SignModals: React.FC = () => {
+export const ModalsSign: React.FC = () => {
     return (
       <>
         <ModalPopup name={MODAL.SIGN_IN} >

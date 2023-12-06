@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { MODAL } from '../../../consts/index';
+import { MODAL, MODAL_INPUT_TYPES } from '../../../consts/index';
 import { closeModal, nullRegisterMessage, openModal, signUpThunk } from '../../../redux/slices/index';
 import { AppDispatch, ErrorObj, RootState } from '../../../types/index';
 import { getAdminErrors } from '../../../utils/index';
 import styles from '../ModalSignIn/modal-sign-in.module.css';
-import { ModalErrors, ModalInput } from '../index';
+import { AdminBtn, ModalErrors, ModalInput } from '../index';
 
 export const ModalSignUp: React.FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -20,7 +20,7 @@ export const ModalSignUp: React.FC = () => {
 
     const dispatch = useDispatch<AppDispatch>();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         if (!repeatPassword) {
             setRepeatPasswordError([{message: 'Укажите пароль повторно', property: 'repeat_password'}]);
@@ -49,13 +49,14 @@ export const ModalSignUp: React.FC = () => {
     }, [registerMessage, dispatch]);
 
     return (
-        <form className={styles.sign_in_body} onSubmit={handleSubmit}>
+        <form className={styles.sign_in_body} >
             <div className={styles.sign_in_wrapper}>
                 <h1 className={styles.sign_in_heading}>Зарегистрируйтесь</h1>
-                <ModalInput setData={setEmail} labelText={'Email: '} type={'text'} htmFor='email' name={'email'} />
-                <ModalInput setData={setPassword} labelText={'Password: '} type={'password'} htmFor='password' name={'password'} />
+                <ModalInput value={email} setData={setEmail} labelText={'Email: '} type={MODAL_INPUT_TYPES.TEXT} htmFor='email' name={'email'} />
+                <ModalInput value={password} setData={setPassword} labelText={'Password: '} type={MODAL_INPUT_TYPES.PASSWORD} htmFor='password' name={'password'} />
                 <ModalInput
-                    type={'password'}
+                    value={repeatPassword}
+                    type={MODAL_INPUT_TYPES.PASSWORD}
                     htmFor='repeat_password'
                     name={'repeat_password'}
                     setData={setRepeatPassword}
@@ -68,7 +69,7 @@ export const ModalSignUp: React.FC = () => {
                 </div>}
                 {registerMessage && <div className={styles.register_message_wrapper}>{registerMessage}</div>}
             </div>
-            <button type='submit'>Зарегистрироваться</button>
+            <AdminBtn onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e)} type='button' text='Зарегистрироваться' />
         </form>
     )
 }
