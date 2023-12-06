@@ -8,6 +8,10 @@
   margin-bottom: 0.5rem;
 }
 
+.check {
+  justify-content: flex-start;
+}
+
 .label {
   text-align: left;
   color: #444;
@@ -18,4 +22,17 @@
 .input {
   color: #444;
   width: 70%;
+}
+
+.checkbox {
+  width: 2rem;
+  height: 2rem;
+}
+
+.textarea {
+  width: 70%;
+  height: 8rem;
+  white-space: pre-line;
+  overflow: auto;
+  resize: none;
 }

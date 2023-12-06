@@ -14,4 +14,5 @@ export const MODAL = {
     TEXT: 'text',
     NUMBER: 'number',
     CHECKBOX: 'checkbox',
+    TEXTAREA: 'textarea',
   };
