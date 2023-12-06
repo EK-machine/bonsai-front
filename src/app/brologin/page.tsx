@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MODAL } from '../../consts/index';
 import { openModal } from '../../redux/slices/modal.slice';
 import { AppDispatch, EventTargetWithDataSetTagName, RootState } from '../../types/index';
-import { SignModals } from '../components/index';
+import { AdminBtn, ModalsSign } from '../components/index';
 import styles from './page.module.css';
 
 export default function BroLogin() {
@@ -31,11 +31,11 @@ export default function BroLogin() {
     return (
         <div className={styles.brologin_page}>
             <h1 className={styles.brologin_heading}>Приветствую!</h1>
-            <section className={styles.brologin_btns_wrapper}>
-                <button className={styles.brologin_btn} onClick={handleClick} data-open-modal-name={MODAL.SIGN_IN}>Войти</button>
-                <button className={styles.brologin_btn} onClick={handleClick} data-open-modal-name={MODAL.SIGN_UP}>Зарегистрироваться</button>
-            </section>
-            <SignModals />
+            <div className={styles.brologin_btns_wrapper}>
+                <AdminBtn type='button' onClick={handleClick} className={styles.mr} dataOpenName={MODAL.SIGN_IN} text='Войти' />
+                <AdminBtn type='button' onClick={handleClick} dataOpenName={MODAL.SIGN_UP} text='Зарегистрироваться' />
+            </div>
+            <ModalsSign />
         </div>
     )
 }

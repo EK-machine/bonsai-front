@@ -2,48 +2,64 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { openModal, removeEditBonsai, setEditBonsai } from '../../../redux/slices/index';
+import { AppDispatch, Article, Bonsai, EventTargetWithDataSetTagName, Instrument, Pot, Service } from '../../../types/index';
+import { getModalImgAlt, getModalName } from '../../../utils/index';
+import { AdminBtn, ModalsEdit } from '../index';
 import styles from './admin-content-item.module.css';
 
 export interface IAdminContentItem {
     activeNav: number;
-    id?: number;
-    name?: string;
-    img_path_1?: string;
+    entity?: Bonsai | Article | Instrument | Pot | Service;
 }
 
+export const AdminContentItem: React.FC<IAdminContentItem> = ({ activeNav, entity }) => {
+    const dispatch = useDispatch<AppDispatch>();
 
-export const AdminContentItem: React.FC<IAdminContentItem> = ({ name, img_path_1, activeNav, id }) => {
-    const getImgAlt = () => {
-        if (activeNav === 0) return `картинка бонсая ${name}`;
-        if (activeNav === 1) return `картинка грунта ${name}`;
-        if (activeNav === 2) return `картинка горшка ${name}`;
-        if (activeNav === 3) return `картинка инструмента ${name}`;
-        if (activeNav === 4) return `картинка услуги ${name}`;
-        if (activeNav === 5) return `картинка статьи ${name}`;
+    const handleClick = (e: React.MouseEvent<HTMLElement>, entity?: Bonsai) => {
+        const eTerget = e.target as EventTargetWithDataSetTagName;
+        const {dataset: {openModalName}} = eTerget;
+        e.preventDefault();
+        dispatch(openModal(openModalName));
+        if (activeNav === 0) {
+            if (entity && Object.values(entity).length > 0) {
+                dispatch(setEditBonsai(entity as Bonsai));
+            } else {
+                dispatch(setEditBonsai({} as Bonsai));
+            }
+        }
+    }
+
+    const addOnCloseAction = () => {
+        if (activeNav === 0) {
+            dispatch(removeEditBonsai());
+        }
     }
 
     return (
         <li className={styles.admin_content_item_body}>
-            {id ? (
+            {entity && Object.values(entity).length > 0 ? (
                 <>
                     <div className={styles.admin_content_item_content}>
                         <Image
                             className={styles.admin_content_item_img}
-                            src={`/${img_path_1}`} // change here
-                            alt={getImgAlt() as string}
+                            src={`/${entity && Object.keys(entity).length > 0 && entity.img_path_1}`} // change here
+                            alt={getModalImgAlt(activeNav, entity) as string}
                             width={80}
                             height={80}
                             priority
                         />
-                        <p className={styles.admin_content_item_name}>{name}</p>
+                        <p className={styles.admin_content_item_name}>{entity && Object.keys(entity).length > 0 && entity.name}</p>
                     </div>
-                    <button className={styles.admin_content_change_btn}>Изменить</button>
+                    <AdminBtn dataOpenName={getModalName(activeNav)} text='Изменить' type='button' onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e, entity as Bonsai)} />
                 </>
             ) : (
                 <div className={styles.admin_content_item_nocontent}>
-                    <button className={styles.admin_content_create_btn}>Создать</button>
+                    <AdminBtn type='button' text='Создать' dataOpenName={getModalName(activeNav)} onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => handleClick(e)} />
                 </div>
             )}
+            <ModalsEdit addOnCloseAction={addOnCloseAction} activeNav={activeNav} />
         </li>
     )
 }

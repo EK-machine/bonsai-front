@@ -19,12 +19,6 @@
   max-width: 1400px;
 }
 
-.brologin_btn {
-  padding: 0.5rem;
-  cursor: pointer;
-  height: fit-content;
-}
-
-.brologin_btn:first-child {
-  margin-right: 0.5rem;
+.mr {
+  margin-right: 1rem;
 }

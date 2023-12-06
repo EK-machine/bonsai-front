@@ -1,3 +1,4 @@
+export * from './AdminBtn/admin-btn.component';
 export * from './AdminContent/admin-content.component';
 export * from './AdminContentItem/admin-content-item.component';
 export * from './AdminLayout/admin-layout.component';
@@ -9,8 +10,10 @@ export * from './ModalInput/modal-input.component';
 export * from './ModalPopup/modal-popup.component';
 export * from './ModalSignIn/modal-sign-in.component';
 export * from './ModalSignUp/modal-sign-up.component';
-export * from './SignModals/sign-in-modal.component';
+export * from './ModalsEdit/modals-edit.component';
+export * from './ModalsSign/modals-sign.component';
 export * from './Svg/index';
+
 
 
 

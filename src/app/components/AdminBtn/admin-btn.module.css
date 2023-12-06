@@ -1,0 +1,16 @@
+.admin_btn {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-family: Montserrat,HelveticaNeue,Helvetica Neue,sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.14rem;
+  font-size: 1.4rem;
+  height: fit-content;
+  display: inline-block;
+  border: 1px solid #cfcfcf;
+  background-color: #f0f0f0;
+}
+
+.admin_btn:hover {
+  background-color: #bdbdbd;
+}

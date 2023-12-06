@@ -7,15 +7,16 @@ import { ModalErrors } from '../index';
 import styles from './modal-input.module.css';
 
 export interface IModalInput {
-    setData: React.Dispatch<React.SetStateAction<string>>
+    setData: React.Dispatch<React.SetStateAction<string>>;
     labelText: string;
     type: string;
     htmFor: string;
     name: string;
     outerErrors?: ErrorObj[];
+    value: string;
 }
 
-export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htmFor, name, outerErrors}) => {
+export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htmFor, name, outerErrors, value}) => {
     const adminErrors = useSelector((state: RootState) => state.admin.errors);
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => setData(e.target.value);
     return (
@@ -24,7 +25,7 @@ export const ModalInput: React.FC<IModalInput> = ({setData, labelText, type, htm
                 <label htmlFor={htmFor} className={styles.label}>
                     {labelText}
                 </label>
-                <input name={name} id={htmFor} autoComplete="off" className={styles.input} onChange={inputHandler} type={type} />
+                <input value={value} name={name} id={htmFor} autoComplete="off" className={styles.input} onChange={inputHandler} type={type} />
             </div>
             <ModalErrors name={name} errors={outerErrors && outerErrors.length > 0 ? outerErrors : adminErrors} />
         </div>

@@ -12,24 +12,30 @@ import styles from './modal-popup.module.css';
 export interface IModalPopup {
   children: ReactNode;
   name: string;
+  addOnCloseAction?: (() => void) | null; 
 }
 
 export const ModalPopup: React.FC<IModalPopup> = memo((props) => {
-  const { children, name } = props;
+  const { children, name, addOnCloseAction } = props;
 
   const activeModal = useSelector((state: RootState) => state.modal.name);
-
+  
   const dispatch = useDispatch<AppDispatch>()
-
+  
   const isVisible = activeModal === name;
   const defaultClassNames = {
     modal: styles.modal_body,
     closeButton: styles.modal_close_btn,
   };
-
+  console.log('0', addOnCloseAction);
   const handleCloseCB = useCallback(() => {
     dispatch(closeModal());
-  }, [dispatch]);
+    console.log('1', addOnCloseAction);
+    if (addOnCloseAction) {
+      console.log('2');
+      addOnCloseAction();
+    }
+  }, [dispatch, addOnCloseAction]);
 
   return (
     <Modal

@@ -34,7 +34,11 @@ export const AdminContent: React.FC<IAdminContent> = ({activeNav}) => {
         <ul className={styles.admin_nav_body}>
             {activeEntity.length > 0 ?
                 activeEntity.map(el => (
-                    <AdminContentItem key={el.id} id={el.id} name={el.name} img_path_1={el.img_path_1} activeNav={activeNav} />))
+                    <AdminContentItem
+                        key={el.id}
+                        entity={el}
+                        activeNav={activeNav}
+                    />))
                     :   (
                     <div>{NoCategoryProducts}</div>
                 )}
