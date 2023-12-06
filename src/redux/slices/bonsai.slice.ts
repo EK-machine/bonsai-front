@@ -20,6 +20,7 @@ export const getAllBonsaisThunk = createAsyncThunk(
 
 const initialState: BonsaiStateInitial = {
   bonsais: [],
+  bonsaiEdit: {} as Bonsai,
   status: '',
   errors: [],
 }
@@ -27,7 +28,14 @@ const initialState: BonsaiStateInitial = {
 const bonsaiSlice = createSlice({
   name: 'bonsaiState',
   initialState,
-  reducers: {},
+  reducers: {
+    setEditBonsai: (state, action: PayloadAction<Bonsai>) => {
+      state.bonsaiEdit = action.payload;
+    },
+    removeEditBonsai: (state) => {
+      state.bonsaiEdit = initialState.bonsaiEdit;
+    },
+  },
   extraReducers: {
     [getAllBonsaisThunk.pending.toString()]: (state) => {
       state.status = SliceStateStatus.Loading;
@@ -45,5 +53,7 @@ const bonsaiSlice = createSlice({
     },
   }
 });
+
+export const { setEditBonsai, removeEditBonsai } = bonsaiSlice.actions;
 
 export default bonsaiSlice.reducer;

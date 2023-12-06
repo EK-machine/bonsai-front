@@ -21,6 +21,7 @@ export interface AdminStateInitial {
 
 export interface BonsaiStateInitial {
     bonsais: Bonsai[];
+    bonsaiEdit: Bonsai;
     status: string;
     errors: ErrorObj[];
 }
